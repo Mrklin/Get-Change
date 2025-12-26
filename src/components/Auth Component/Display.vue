@@ -1,7 +1,7 @@
 <template>
   <section class="relative h-screen flex">
     <transition name="fade" mode="out-in">
-      <img :src="currentImg" alt="" class="h-full w-full inset-0" />
+      <img :src="currentImg" :key="currentImg" alt="" class="h-full w-full inset-0" />
     </transition>
 
     <div
@@ -23,15 +23,15 @@
   </section>
 </template>
 <script>
-import image1 from "@/assets/Signup1.png";
-import image2 from "@/assets/Signup2.png";
+// import image1 from "@/assets/Signup1.webp";
+// import image2 from "@/assets/Signup2.webp";
 export default {
   name: "Display",
   data() {
     return {
       imgSwap: [
         {
-          img: image1,
+          img: new URL('@/assets/Signup1.webp', import.meta.url).href,
           text: {
             header: "No Hazzles",
             para: "Lorem ipsum dolor sit amet, consectetur \n adipiscing elit, sed do eiusmod.",
@@ -39,7 +39,7 @@ export default {
           nav1:true
         },
         {
-          img: image2,
+          img: new URL('@/assets/Signup2.webp', import.meta.url).href,
           text: {
             header: "Secure Payments",
             para: "New lorem ipsum dolor sit amet, consectetur \n adipiscing elit, it changes.",
