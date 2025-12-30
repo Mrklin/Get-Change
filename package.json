@@ -17,6 +17,7 @@
     "tailwindcss": "^4.1.16",
     "vue": "^3.5.22",
     "vue-router": "^4.6.3",
+    "vue3-hot-toast": "^0.0.5",
     "vuex": "^4.1.0"
   },
   "devDependencies": {

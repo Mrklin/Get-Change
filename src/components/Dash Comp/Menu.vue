@@ -1,4 +1,5 @@
 <template>
+  <div><Toaster position="top-center" :reverseOrder="false"/></div>
   <div
     class="relative bg-[#F6F8F8] w-full h-full flex justify-center items-center text-5xl"
   >
@@ -358,8 +359,9 @@ import MyButton from "../MyButton.vue";
 import Popup from "../Popup.vue";
 import CheckBox from "./Icon Comp/CheckBox.vue";
 import CardInputs from "../CardInputs.vue";
+import toast, {Toaster} from "vue3-hot-toast";
 export default {
-  components: { MyButton, Popup, CheckBox, CardInputs },
+  components: { MyButton, Popup, CheckBox, CardInputs, Toaster },
   data() {
     return {
       isPop:false,
@@ -693,6 +695,10 @@ export default {
       return this.tableBodys[this.roleMoves]
     }
   },
+
+  // created() {
+  //   toast.success("Welcome back Admin!");
+  // },
 };
 </script>
 <style>

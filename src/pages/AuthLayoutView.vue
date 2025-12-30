@@ -1,13 +1,13 @@
 <template>
-    <div class="flex justify-between items-center h-screen w-full">
+    <div class="flex justify-center md:justify-between items-center h-screen w-full">
 
-        <div class="w-[60%]">
+        <div class="w-[60%] hidden md:flex">
              <Display />
         </div>
         
      
         <!-- <Forms /> -->
-        <div class="flex flex-col justify-between items-center px-10 pt-15 pb-5 w-full h-full">
+        <div class="flex flex-col gap-10 md:gap-0 justify-between items-center px-10 pt-15 pb-5 w-full h-full">
             <RouterView />
             
             <Footer />

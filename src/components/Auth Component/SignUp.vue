@@ -1,14 +1,16 @@
 <template>
   <div >
+    <div><Toaster position="top-center" :reverseOrder="false"/></div>
     <section class="flex flex-col w-fit text-[#013C61] px-10 gap-3">
       <h2 class=" text-2xl font-semibold">Create your free account</h2>
       <p>Already registered? <router-link :to="{name: 'signIn'}" class="text-[#2BDA53] cursor-pointer">Sign In</router-link></p>
+
       <form class="shadow-2xl rounded-lg flex flex-col px-6 py-7 bg-white">
          <span class="flex flex-col justify-center gap-3">
 
             <span :class="[step1? 'flex': 'hidden', 'w-full flex gap-3 flex-col']">
 
-            <span class="flex -full gap-3" >
+            <span class="flex flex-col md:flex-row w-full gap-3" >
                <span class="flex flex-col">
               <label class="w-full" for="name">First Name:</label>
               <span class="flex">
@@ -113,10 +115,10 @@
 </template>
 <script>
 import MyButton from '../MyButton.vue';
-
+import toast, { Toaster } from 'vue3-hot-toast';
 export default {
   name: "SignUp",
-  components:{MyButton},
+  components:{MyButton, Toaster},
 
   data() {
     return {
@@ -171,13 +173,16 @@ export default {
 
         const emailExist = formArray.some(user => user.email === newUser.email);
         if(emailExist){
-          alert('Email already exists. Please use a different email.');
+          toast.error('Email already exists. Please use a different email.')
+          // alert('Email already exists. Please use a different email.');
           return;
         }
 
         formArray.push(newUser);
 
         localStorage.setItem('store', JSON.stringify(formArray));
+
+        toast.success('Registration successful! You can now sign in.');
       }
     
     },

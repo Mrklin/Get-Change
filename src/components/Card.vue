@@ -4,7 +4,7 @@
             :class="[deletes? 'hidden':'flex']">
                 <div class="flex justify-center items-center gap-10">
                     <p>**** **** **** **** {{cardNumber.slice(16,20)}}</p> 
-                    <img @click="deleteOne" class="cursor-pointer" src="\src\assets\trash-2.svg"/>
+                    <img @click="deleteOne" class="cursor-pointer" src="/src/assets/trash-2.svg"/>
                 </div>
 
                 <div class="flex justify-between items-center w-full">
@@ -19,7 +19,7 @@
                     </span>
                     
                     <span>
-                        <img src="\src\assets\Mastercard-logo.svg" alt="MasterCard" >
+                        <img src="/src/assets/Mastercard-logo.svg" alt="MasterCard" >
                     </span>
 
                 </div>

@@ -1,6 +1,6 @@
 <template lang="">
     <button
-      :class="['rounded-sm py-1 px-6 cursor-pointer hover:opacity-60',customClass]">
+      :class="['rounded-sm  py-3 md:py-1 px-6 text-nowrap cursor-pointer hover:opacity-60',customClass]">
         <slot></slot>
     </button>
 </template>

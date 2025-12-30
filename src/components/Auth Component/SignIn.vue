@@ -1,8 +1,10 @@
 <template>
   <div>
+    <div><Toaster position="top-center" :reverseOrder="false"/></div>
     <section class="flex flex-col w-fit text-[#013C61] px-10 gap-3">
       <h2 class="text-2xl font-semibold">Welcome</h2>
       <p>Don't have an account? <router-link :to="{name: 'signUp'}" class="text-[#2BDA53] cursor-pointer">Sign up</router-link> </p>
+      
       <form class="shadow-2xl rounded-lg flex flex-col px-6 py-7 bg-white " @submit.prevent="login">
         <span class="flex flex-col justify-center gap-3">
           
@@ -28,7 +30,7 @@
             <router-link :to="{name: 'reset'}" class='text-sm text-[#2BDA53] cursor-pointer'>
                 Forgot Password?
             </router-link>
-            <MyButton @click="login" >Sign In</MyButton>
+            <MyButton>Sign In</MyButton>
           </span>
         </span>
       </form>
@@ -37,8 +39,9 @@
 </template>
 <script>
 import MyButton from '../MyButton.vue';
+import toast, { Toaster } from 'vue3-hot-toast';
 export default {
-  components:{MyButton},
+  components:{MyButton, Toaster},
     data() {
         return {
             passwordType: 'password',
@@ -102,11 +105,20 @@ export default {
           const enterPassword = this.credentials.password;
 
           if(this.checkLogin(enterEmail, enterPassword)){
+
+            localStorage.setItem('currentUserEmail', this.credentials.email);
+            
+            
             this.$router.push({ name: 'menu' });
+
+            toast.success('Login successful!');
+           
           } else {
-            alert('Invalid email or password. Please try again.');
+            
+            toast.error('Invalid email or password. Please try again.');
+            
           }
-          localStorage.setItem('currentUserEmail', this.credentials.email);
+          
         },
 
 
